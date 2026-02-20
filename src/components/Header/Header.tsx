@@ -1,4 +1,4 @@
-import { Login } from '../Login/Login';
+import { UserBar } from '../shared/ui/UserBar/UserBar';
 import { Navigation } from '../Navigation/Navigation';
 import { Container } from '../shared/Layout/Layout.styled';
 import { Search } from '../shared/ui/Search/Search';
@@ -13,7 +13,7 @@ export const Header = () => {
 
           <SC.Wrapper>
             <Search />
-            <Login />
+            <UserBar />
           </SC.Wrapper>
         </SC.WrapperNav>
       </Container>

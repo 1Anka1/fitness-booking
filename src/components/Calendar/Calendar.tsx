@@ -1,4 +1,3 @@
-
 import { useCalendarApp, ScheduleXCalendar } from '@schedule-x/react';
 import {
   createViewDay,
@@ -8,10 +7,11 @@ import {
 } from '@schedule-x/calendar';
 import 'temporal-polyfill/global';
 import '@schedule-x/theme-default/dist/index.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { createEventsServicePlugin } from '@schedule-x/events-service';
 
 export function Calendar() {
-  const eventsService = useEventsService();
+  const eventsService = useState(() => createEventsServicePlugin())[0];
 
   const calendar = useCalendarApp({
     views: [createViewDay(), createViewWeek(), createViewMonthGrid(), createViewMonthAgenda()],
@@ -19,8 +19,8 @@ export function Calendar() {
       {
         id: '1',
         title: 'Event 1',
-        start: Temporal.PlainDate.from('2026-02-16 09:00'),
-        end: Temporal.PlainDate.from('2026-02-16 09:00'),
+        start: Temporal.PlainDate.from('2023-12-16'),
+        end: Temporal.PlainDate.from('2023-12-16'),
       },
     ],
     plugins: [eventsService],

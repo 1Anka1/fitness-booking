@@ -4,7 +4,8 @@ import { Layout } from './components/shared/Layout/Layout';
 import { DashboardTrainer } from './pages/DashboardTrainer';
 import { Calendar } from './components/Calendar/Calendar';
 import { BookingModal } from './components/BookingModal/BookingModal';
-import { AdminPage } from './components/AdminPage/AdminPage';
+import { AdminPanel } from './pages/AdminPanel';
+import { Login } from './pages/Login';
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="trainer" element={<DashboardTrainer />} />
         <Route path="booking" element={<BookingModal />} />
-
         <Route path="calendar" element={<Calendar />} />
-        <Route path="admin" element={<AdminPage />} />
+        <Route path="admin" element={<AdminPanel />} />
       </Route>
+      <Route path="login" element={<Login />} />
     </Routes>
   );
 }

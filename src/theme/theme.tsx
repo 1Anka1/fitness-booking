@@ -1,7 +1,7 @@
 import type { DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = Object.freeze({
-  space: [0, 5, 8, 16, 32, 56, 74, 128, 256, 512],
+  space: [0, 5, 8, 16, 32, 56, 74, 128, 256, 450],
 
   fonts: {
     body: 'Inter, serif',
@@ -20,6 +20,7 @@ export const theme: DefaultTheme = Object.freeze({
   fontWeights: {
     light: 200,
     normal: 400,
+    lightMedium: 500,
     medium: 700,
     bold: 900,
   },
@@ -30,6 +31,7 @@ export const theme: DefaultTheme = Object.freeze({
     background: '#F9FAFB',
     textPrimary: '#111827',
     textSecondary: '#4B5563',
+    label: '#374151',
     textMuted: '#9CA3AF',
 
     border: '#E5E7EB',

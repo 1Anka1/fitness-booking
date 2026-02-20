@@ -1,12 +1,12 @@
 import { FaRegBell } from 'react-icons/fa6';
 import { PiUserCircleThin } from 'react-icons/pi';
-import * as SC from './Login.styled';
+import * as SC from './UserBar.styled';
 import { useState } from 'react';
-import { Dropdown } from '../shared/ui/Dropdown/Dropdown';
+import { Dropdown } from '../Dropdown/Dropdown';
 import { IoIosArrowDown } from 'react-icons/io';
-import { theme } from '../../theme/theme';
+import { theme } from '../../../../theme/theme';
 
-export const Login = () => {
+export const UserBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {

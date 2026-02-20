@@ -1,16 +1,10 @@
-import { FaDumbbell } from 'react-icons/fa6';
 import * as SC from './Navigation.styled';
+import { Logo } from '../shared/ui/Logo/Logo';
 
 export const Navigation = () => {
   return (
     <SC.Wrapper>
-      <SC.WrapperLogo>
-        <SC.Icon>
-          <FaDumbbell color={'white'} />
-        </SC.Icon>
-        <SC.Title>FitnessBooking</SC.Title>
-      </SC.WrapperLogo>
-
+      <Logo />
       <nav>
         <SC.NavList>
           <SC.NavListItem>
@@ -18,6 +12,7 @@ export const Navigation = () => {
             <SC.NavLinkItems to={'booking'}>My Bookings</SC.NavLinkItems>
             <SC.NavLinkItems to={'trainer'}>Trainers</SC.NavLinkItems>
             <SC.NavLinkItems to={'admin'}>Admin Page</SC.NavLinkItems>
+            <SC.NavLinkItems to={'login'}>Login Page</SC.NavLinkItems>
           </SC.NavListItem>
         </SC.NavList>
       </nav>

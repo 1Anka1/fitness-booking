@@ -4,6 +4,7 @@ export const DropdownPanel = styled.div`
   position: fixed;
   right: ${(p) => p.theme.space[1]}px;
   top: ${(p) => p.theme.space[6]}px;
+  background: ${({ theme }) => theme.colors.background};
 
   width: clamp(240px, 20vw, 320px);
 

@@ -8,27 +8,6 @@ export const Wrapper = styled.div`
   gap: ${(p) => p.theme.space[4]}px;
 `;
 
-export const WrapperLogo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${(p) => p.theme.space[2]}px;
-`;
-
-export const Icon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: ${(p) => p.theme.colors.primary};
-  border-radius: ${(p) => p.theme.radius.round};
-`;
-
-export const Title = styled.h2`
-  font-size: 20px;
-  font-weight: 600;
-`;
-
 export const NavList = styled.ul`
   display: flex;
   gap: ${(p) => p.theme.space[3]}px;
@@ -51,7 +30,8 @@ export const NavLinkItems = styled(NavLink)`
   border-radius: ${(p) => p.theme.radius.round};
   cursor: pointer;
 
-  &.active {
+  &:focus,
+  &:active {
     color: ${(p) => p.theme.colors.primary};
     background-color: ${(p) => p.theme.colors.primaryLight};
   }

@@ -21,6 +21,7 @@ declare module 'styled-components' {
     fontWeights: {
       light: number;
       normal: number;
+      lightMedium: number;
       medium: number;
       bold: number;
     };
@@ -33,6 +34,7 @@ declare module 'styled-components' {
       textPrimary: string;
       textSecondary: string;
       textMuted: string;
+      label: string;
 
       border: string;
       borderDark: string;

@@ -23,12 +23,11 @@ export const UserButton = styled.div`
 export const DropdownItem = styled.button`
   padding: 10px 16px;
   text-align: left;
-  background: transparent;
   border: none;
+  background: inherit;
   font: inherit;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
-    background: ${({ theme }) => theme.colors.primaryLight};
   }
 `;
