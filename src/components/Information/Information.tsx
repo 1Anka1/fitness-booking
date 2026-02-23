@@ -1,6 +1,6 @@
 import { FaDumbbell } from 'react-icons/fa6';
 import * as SC from './Information.styled';
-import { InformationList } from './config';
+import { InformationList } from './config/config';
 
 export const Information = () => {
   return (

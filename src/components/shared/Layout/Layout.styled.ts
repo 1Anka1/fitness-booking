@@ -8,7 +8,8 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  padding-bottom: 30px;
+  padding-top: 60px;
+  background-color: ${(p) => p.theme.colors.background};
 `;
 
 export const SideWrapper = styled.div`

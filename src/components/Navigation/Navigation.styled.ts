@@ -31,7 +31,7 @@ export const NavLinkItems = styled(NavLink)`
   cursor: pointer;
 
   &:focus,
-  &:active {
+  &.active {
     color: ${(p) => p.theme.colors.primary};
     background-color: ${(p) => p.theme.colors.primaryLight};
   }

@@ -11,14 +11,14 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Navigate to="home" replace />} />
-        <Route path="home" element={<Home />} />
-        <Route path="trainer" element={<DashboardTrainer />} />
-        <Route path="booking" element={<BookingModal />} />
-        <Route path="calendar" element={<Calendar />} />
-        <Route path="admin" element={<AdminPanel />} />
+        <Route index element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/trainer" element={<DashboardTrainer />} />
+        <Route path="/booking" element={<BookingModal />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Route>
-      <Route path="login" element={<Login />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }

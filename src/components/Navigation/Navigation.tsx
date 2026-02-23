@@ -8,11 +8,21 @@ export const Navigation = () => {
       <nav>
         <SC.NavList>
           <SC.NavListItem>
-            <SC.NavLinkItems to={'calendar'}>Calendar</SC.NavLinkItems>
-            <SC.NavLinkItems to={'booking'}>My Bookings</SC.NavLinkItems>
-            <SC.NavLinkItems to={'trainer'}>Trainers</SC.NavLinkItems>
-            <SC.NavLinkItems to={'admin'}>Admin Page</SC.NavLinkItems>
-            <SC.NavLinkItems to={'login'}>Login Page</SC.NavLinkItems>
+            <SC.NavLinkItems to={'/calendar'} end={false}>
+              Calendar
+            </SC.NavLinkItems>
+            <SC.NavLinkItems to={'/booking'} end={false}>
+              My Bookings
+            </SC.NavLinkItems>
+            <SC.NavLinkItems to={'/trainer'} end={false}>
+              Trainers
+            </SC.NavLinkItems>
+            <SC.NavLinkItems to={'/admin'} end={false}>
+              Admin Page
+            </SC.NavLinkItems>
+            <SC.NavLinkItems to={'/login'} end={false}>
+              Login Page
+            </SC.NavLinkItems>
           </SC.NavListItem>
         </SC.NavList>
       </nav>

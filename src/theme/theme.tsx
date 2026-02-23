@@ -29,10 +29,12 @@ export const theme: DefaultTheme = Object.freeze({
     primary: '#0284C7',
     primaryLight: '#F0F9FF',
     background: '#F9FAFB',
+    backgroundDark: '#0a76ac',
     textPrimary: '#111827',
     textSecondary: '#4B5563',
     label: '#374151',
     textMuted: '#9CA3AF',
+    sideBorder: '#E5E7EB',
 
     border: '#E5E7EB',
     borderDark: '#D1D5DB',

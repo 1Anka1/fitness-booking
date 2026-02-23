@@ -31,11 +31,12 @@ declare module 'styled-components' {
       primaryLight: string;
 
       background: string;
+      backgroundDark: string;
       textPrimary: string;
       textSecondary: string;
       textMuted: string;
       label: string;
-
+      sideBorder: string;
       border: string;
       borderDark: string;
 
