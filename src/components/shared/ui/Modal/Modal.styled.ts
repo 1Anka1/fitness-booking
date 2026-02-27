@@ -9,40 +9,38 @@ export const Overlay = styled.div`
   z-index: 20;
   overflow-y: auto;
   backdrop-filter: blur(2px);
-  padding: 8px;
+  padding: ${(p) => p.theme.space[2]}px;
 `;
 
 export const Inner = styled.div`
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 32px;
-  padding-right: 32px;
+  background-color: ${(p) => p.theme.colors.primaryLight};
+  border-radius: ${(p) => p.theme.radius.round};
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
-  background-color: var(--background-color);
-
-  max-width: 518px;
-  width: 90%;
-
-  max-height: 90%;
-  border-radius: 40px;
 `;
 
 export const CloseBtn = styled.button`
+  display: flex;
+  height: ${(p) => p.theme.space[4]}px;
+  align-items: center;
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background-color: transparent;
+  top: ${(p) => p.theme.space[2]}px;
+  right: ${(p) => p.theme.space[2]}px;
   border: none;
   outline: none;
   cursor: pointer;
-  color: var(--primary-text-color);
-  transition: color 350ms var(--timing-function);
+  border-radius: ${(p) => p.theme.radius.round};
+  background-color: ${(p) => p.theme.colors.primary};
+  color: ${(p) => p.theme.colors.primaryLight};
+  transition: color 350ms ${(p) => p.theme.cubic.timingFunction};
+
   :hover {
-    color: var(--primary-color);
+    color: ${(p) => p.theme.colors.backgroundDark};
   }
 `;

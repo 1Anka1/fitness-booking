@@ -13,11 +13,11 @@ export const Paragraf = styled.p`
 `;
 
 export const Form = styled.form`
-  width: ${(p) => p.theme.space[9]}px;
+  width: ${(p) => p.theme.space[10]}px;
   display: flex;
   flex-direction: column;
-  margin: ${(p) => p.theme.space[4]}px 0;
-  gap: 20px;
+  margin: ${(p) => p.theme.space[5]}px 0;
+  gap: ${(p) => p.theme.space[4]}px;
 `;
 
 export const Label = styled.label`
@@ -46,8 +46,8 @@ export const IconWrapper = styled.div`
   color: ${(p) => p.theme.colors.textMuted};
 `;
 
-export const Input = styled.input`
-  width: ${(p) => p.theme.space[9]}px;
+export const Input = styled.input<{ $error?: string }>`
+  width: ${(p) => p.theme.space[10]}px;
   padding: ${(p) => p.theme.space[3]}px;
   padding-right: 40px;
   border: 1px solid ${(p) => p.theme.colors.borderDark};

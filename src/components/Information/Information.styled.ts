@@ -9,37 +9,37 @@ export const InfoContent = styled.div`
 
 export const TitleInfo = styled.h2`
   width: 350px;
-  font-size: 32px;
-  margin-bottom: 24px;
+  font-size: ${(p) => p.theme.fontSizes.l}px;
+  margin-bottom: ${(p) => p.theme.space[4]}px;
   line-height: 1.2;
 `;
 
 export const ParagrafInfo = styled.p`
-  font-size: 18px;
+  font-size: ${(p) => p.theme.fontSizes.m}px;
   color: ${(p) => p.theme.colors.primaryLight};
-  margin-bottom: 24px;
+  margin-bottom: ${(p) => p.theme.space[4]}px;
 `;
 
 export const InfoList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: ${(p) => p.theme.space[3]}px;
 `;
 
 export const InfoItems = styled.li`
   display: flex;
   flex-direction: column;
-  font-weight: 600;
+  font-weight: ${(p) => p.theme.fontWeights.medium};
 `;
 
 export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: ${(p) => p.theme.space[3]}px;
 `;
 
 export const Span = styled.span`
-  font-size: 16px;
-  font-weight: 400;
+  font-size: ${(p) => p.theme.fontSizes.m}px;
+  font-weight: ${(p) => p.theme.fontWeights.normal};
   color: ${(p) => p.theme.colors.primaryLight};
 `;

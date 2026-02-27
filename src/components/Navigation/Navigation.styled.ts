@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: ${(p) => p.theme.space[4]}px;
+  gap: ${(p) => p.theme.space[5]}px;
 `;
 
 export const NavList = styled.ul`
@@ -23,8 +23,8 @@ export const NavLinkItems = styled(NavLink)`
   display: flex;
   align-items: center;
   padding: 8px 12px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: ${(p) => p.theme.fontSizes.s}px;
+  font-weight: ${(p) => p.theme.fontWeights.lightMedium};
   gap: ${(p) => p.theme.space[1]}px;
   color: ${(p) => p.theme.colors.textSecondary};
   border-radius: ${(p) => p.theme.radius.round};

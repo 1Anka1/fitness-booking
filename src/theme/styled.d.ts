@@ -42,7 +42,8 @@ declare module 'styled-components' {
 
       black: string;
       white: string;
-
+      violetLight: string;
+      violetDark: string;
       statusInfo: string;
       statusWarning: string;
       statusSuccess: string;

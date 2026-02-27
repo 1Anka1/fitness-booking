@@ -8,7 +8,7 @@ export const AdminWrapper = styled.div`
 export const SideNavWrapper = styled.div`
   width: 300px;
   height: 100vh;
-  padding: 24px;
+  padding: ${(p) => p.theme.space[4]}px;
   background-color: ${(p) => p.theme.colors.white};
   border-right: 1px solid ${(p) => p.theme.colors.sideBorder};
 `;

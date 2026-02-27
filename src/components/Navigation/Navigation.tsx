@@ -8,7 +8,7 @@ export const Navigation = () => {
       <nav>
         <SC.NavList>
           <SC.NavListItem>
-            <SC.NavLinkItems to={'/calendar'} end={false}>
+            <SC.NavLinkItems to={'/home'} end={false}>
               Calendar
             </SC.NavLinkItems>
             <SC.NavLinkItems to={'/booking'} end={false}>

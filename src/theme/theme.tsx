@@ -1,7 +1,7 @@
 import type { DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = Object.freeze({
-  space: [0, 5, 8, 16, 32, 56, 74, 128, 256, 450],
+  space: [0, 5, 8, 16, 24, 32, 56, 74, 150, 256, 450],
 
   fonts: {
     body: 'Inter, serif',
@@ -42,9 +42,12 @@ export const theme: DefaultTheme = Object.freeze({
     black: '#000000',
     white: '#FFFFFF',
 
+    violetLight: '#F3E8FF',
+    violetDark: '#9333EA',
+
     statusInfo: '#3B82F6',
     statusWarning: '#FACC15',
-    statusSuccess: '#4ADE80',
+    statusSuccess: '#16A34A',
     statusError: '#F87171',
   },
 

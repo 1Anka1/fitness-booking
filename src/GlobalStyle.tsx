@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import '@schedule-x/theme-default/dist/index.css';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -21,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
   blockquote,
   dl,
   dd {
-    margin: 0;
+    margin: ${(p) => p.theme.space[0]}px;
   }
 
   a {
@@ -31,8 +32,8 @@ export const GlobalStyle = createGlobalStyle`
   ul,
   li,
   ol {
-    padding: 0;
-    margin: 0;
+    padding: ${(p) => p.theme.space[0]}px;;
+    margin: ${(p) => p.theme.space[0]}px;;
     list-style: none;
   }
 
@@ -43,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     display: block;
-    margin: 0;
+    margin: ${(p) => p.theme.space[0]}px;;
     font: 200 20px/1.5 ${(p) => p.theme.fonts.body};
   }
 `;

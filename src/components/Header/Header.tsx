@@ -12,7 +12,7 @@ export const Header = () => {
           <Navigation />
 
           <SC.Wrapper>
-            <Search />
+            <Search placeholder={'Search trainers, sessions...'} />
             <UserBar />
           </SC.Wrapper>
         </SC.WrapperNav>

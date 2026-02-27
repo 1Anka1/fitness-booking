@@ -4,16 +4,16 @@ import styled from 'styled-components';
 export const SocialWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: ${(p) => p.theme.space[4]}px;
   width: 100%;
-  margin: 0 auto;
+  margin: ${(p) => p.theme.space[0]}px auto;
   text-align: center;
 `;
 
 export const Divider = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: ${(p) => p.theme.space[3]}px;
 `;
 
 export const Line = styled.div`
@@ -29,7 +29,7 @@ export const Text = styled.span`
 
 export const Buttons = styled.div`
   display: flex;
-  gap: 10px;
+  gap: ${(p) => p.theme.space[2]}px;
   justify-content: center;
 `;
 

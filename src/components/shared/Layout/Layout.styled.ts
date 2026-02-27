@@ -9,9 +9,14 @@ export const Container = styled.div`
 
 export const Section = styled.section`
   padding-top: 60px;
-  background-color: ${(p) => p.theme.colors.background};
 `;
 
+export const Main = styled.main`
+  flex-grow: 1;
+  background-color: #f9fafb;
+`;
+
+///LOGIN PAGE
 export const SideWrapper = styled.div`
   flex: 1;
   display: flex;
