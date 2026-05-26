@@ -38,7 +38,7 @@ export const calendarSlice = createSlice({
 });
 
 const persistConfig = {
-  key: 'calnedar',
+  key: 'calendar',
   storage,
   whitelist: ['events'],
 };
