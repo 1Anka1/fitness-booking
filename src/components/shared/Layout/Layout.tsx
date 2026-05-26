@@ -3,6 +3,7 @@ import { Header } from '../../Header/Header';
 import { Suspense } from 'react';
 import { Main } from './Layout.styled';
 import { Bounce, ToastContainer } from 'react-toastify';
+import { Loader } from '../ui/Loader/Loader';
 
 export const Layout = () => {
   return (
@@ -23,7 +24,7 @@ export const Layout = () => {
           transition={Bounce}
         />
 
-        <Suspense fallback={'Loading'}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Main>

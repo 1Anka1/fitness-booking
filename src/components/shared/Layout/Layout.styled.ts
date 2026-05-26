@@ -8,12 +8,12 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  padding-top: 60px;
+  padding-top: 40px;
 `;
 
 export const Main = styled.main`
   flex-grow: 1;
-  background-color: #f9fafb;
+  /* background-color: ${({ theme }) => theme.colors.black}; */
 `;
 
 ///LOGIN PAGE

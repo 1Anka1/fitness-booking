@@ -2,29 +2,29 @@ import { FaFilter } from 'react-icons/fa6';
 import styled, { css } from 'styled-components';
 
 export const Card = styled.div`
-  font-size: ${(p) => p.theme.fontSizes.xs}px;
-  background: ${(p) => p.theme.colors.white};
-  border-radius: ${(p) => p.theme.radius.round};
-  font-weight: ${(p) => p.theme.fontWeights.lightMedium};
-  border: 1px solid ${(p) => p.theme.colors.borderDark};
+  font-size: ${({ theme }) => theme.fontSizes.xs}px;
+  background: ${({ theme }) => theme.colors.white};
+  border-radius: ${({ theme }) => theme.radius.round};
+  font-weight: ${({ theme }) => theme.fontWeights.lightMedium};
+  border: 1px solid ${({ theme }) => theme.colors.borderDark};
 `;
 
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: ${(p) => p.theme.space[4]}px;
+  padding: ${({ theme }) => theme.space[4]}px;
 `;
 
 export const Title = styled.h2`
-  font-size: ${(p) => p.theme.fontSizes.m}px;
-  font-weight: ${(p) => p.theme.fontWeights.lightMedium};
+  font-size: ${({ theme }) => theme.fontSizes.m}px;
+  font-weight: ${({ theme }) => theme.fontWeights.lightMedium};
 `;
 
 export const SearchWrap = styled.div`
   display: flex;
   align-items: center;
-  gap: ${(p) => p.theme.space[2]}px;
+  gap: ${({ theme }) => theme.space[2]}px;
 `;
 
 export const FilterButton = styled.button`
@@ -35,56 +35,56 @@ export const FilterButton = styled.button`
 `;
 
 export const Filter = styled(FaFilter)`
-  color: ${(p) => p.theme.colors.textSecondary};
-  transition: color 250ms ${(p) => p.theme.cubic.timingFunction};
+  color: ${({ theme }) => theme.colors.textSecondary};
+  transition: color 250ms ${({ theme }) => theme.cubic.timingFunction};
 
   &:hover {
-    color: ${(p) => p.theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
 export const Wrapper = styled.div`
-  border-top: 1px solid ${(p) => p.theme.colors.borderDark};
+  border-top: 1px solid ${({ theme }) => theme.colors.borderDark};
 `;
 
 export const Head = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   color: #667085;
-  padding: ${(p) => p.theme.space[2]}px ${(p) => p.theme.space[4]}px;
-  background-color: ${(p) => p.theme.colors.background};
+  padding: ${({ theme }) => theme.space[2]}px ${({ theme }) => theme.space[4]}px;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const HeadTitleEl = styled.p`
-  color: ${(p) => p.theme.colors.textMuted};
-  font-size: ${(p) => p.theme.fontSizes.m}px;
+  color: ${({ theme }) => theme.colors.textMuted};
+  font-size: ${({ theme }) => theme.fontSizes.m}px;
 `;
 
 export const Row = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  padding: ${(p) => p.theme.space[3]}px ${(p) => p.theme.space[4]}px;
-  border-bottom: 1px solid ${(p) => p.theme.colors.borderDark};
+  padding: ${({ theme }) => theme.space[3]}px ${({ theme }) => theme.space[4]}px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderDark};
 `;
 
 export const User = styled.div`
   display: flex;
-  gap: ${(p) => p.theme.space[2]}px;
+  gap: ${({ theme }) => theme.space[2]}px;
   align-items: center;
-  font-size: ${(p) => p.theme.fontSizes.s}px;
+  font-size: ${({ theme }) => theme.fontSizes.s}px;
 
   img {
     border-radius: 50%;
   }
 
   span {
-    color: ${(p) => p.theme.colors.textMuted};
+    color: ${({ theme }) => theme.colors.textMuted};
   }
 `;
 
 export const badge = css`
-  padding: ${(p) => p.theme.space[1]}px ${(p) => p.theme.space[2]}px;
+  padding: ${({ theme }) => theme.space[1]}px ${({ theme }) => theme.space[2]}px;
   border-radius: 30px;
   width: fit-content;
 `;
@@ -108,44 +108,44 @@ export const Status = styled.div<{ $status: string }>`
 `;
 
 export const Joined = styled.div`
-  color: ${(p) => p.theme.colors.textMuted};
+  color: ${({ theme }) => theme.colors.textMuted};
   font-size: inherit;
 `;
 
 export const Actions = styled.div`
   display: flex;
-  gap: ${(p) => p.theme.space[2]}px;
+  gap: ${({ theme }) => theme.space[2]}px;
 
   button {
     border: none;
     background: none;
     cursor: pointer;
-    color: ${(p) => p.theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   .danger {
-    color: ${(p) => p.theme.colors.statusError};
+    color: ${({ theme }) => theme.colors.statusError};
   }
 `;
 
 export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: ${(p) => p.theme.space[3]}px ${(p) => p.theme.space[3]}px;
-  font-size: ${(p) => p.theme.fontSizes.s}px;
-  color: ${(p) => p.theme.colors.label};
-  font-weight: ${(p) => p.theme.fontWeights.normal};
+  padding: ${({ theme }) => theme.space[3]}px ${({ theme }) => theme.space[3]}px;
+  font-size: ${({ theme }) => theme.fontSizes.s}px;
+  color: ${({ theme }) => theme.colors.label};
+  font-weight: ${({ theme }) => theme.fontWeights.normal};
 `;
 
 export const Pagination = styled.div`
   display: flex;
-  gap: ${(p) => p.theme.space[1]}px;
+  gap: ${({ theme }) => theme.space[1]}px;
 
   button {
     padding: 6px 12px;
-    border-radius: ${(p) => p.theme.radius.round};
-    border: 1px solid ${(p) => p.theme.colors.border};
-    background: ${(p) => p.theme.colors.white};
+    border-radius: ${({ theme }) => theme.radius.round};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    background: ${({ theme }) => theme.colors.white};
     cursor: pointer;
     color: inherit;
     font-size: inherit;
@@ -153,8 +153,8 @@ export const Pagination = styled.div`
   }
 
   .active {
-    background: ${(p) => p.theme.colors.primary};
-    color: ${(p) => p.theme.colors.white};
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.white};
     border: none;
   }
 `;

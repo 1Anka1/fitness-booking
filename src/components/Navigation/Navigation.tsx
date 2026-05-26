@@ -1,31 +1,20 @@
 import * as SC from './Navigation.styled';
 import { Logo } from '../shared/ui/Logo/Logo';
+import { MenuNav } from './MenuNav/MenuNav';
+import { useAuthSelector } from '../../hooks/useAuthSelector';
+import { AuthNav } from './AuthNav/AuthNav';
 
-export const Navigation = () => {
+type NavigationProps = {
+  $isOverlay: boolean;
+};
+
+export const Navigation = ({ $isOverlay }: NavigationProps) => {
+  const { isLogged } = useAuthSelector();
+
   return (
-    <SC.Wrapper>
-      <Logo />
-      <nav>
-        <SC.NavList>
-          <SC.NavListItem>
-            <SC.NavLinkItems to={'/home'} end={false}>
-              Calendar
-            </SC.NavLinkItems>
-            <SC.NavLinkItems to={'/booking'} end={false}>
-              My Bookings
-            </SC.NavLinkItems>
-            <SC.NavLinkItems to={'/trainer'} end={false}>
-              Trainers
-            </SC.NavLinkItems>
-            <SC.NavLinkItems to={'/admin'} end={false}>
-              Admin Page
-            </SC.NavLinkItems>
-            <SC.NavLinkItems to={'/login'} end={false}>
-              Login Page
-            </SC.NavLinkItems>
-          </SC.NavListItem>
-        </SC.NavList>
-      </nav>
-    </SC.Wrapper>
+    <SC.Navigation>
+      <Logo $isOverlay={$isOverlay} />
+      {isLogged ? <MenuNav /> : <AuthNav />}
+    </SC.Navigation>
   );
 };

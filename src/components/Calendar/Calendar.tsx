@@ -6,7 +6,7 @@ import { selectEvents } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import { createEventsServicePlugin } from '@schedule-x/events-service';
 import { createViewDay, createViewMonthGrid, createViewWeek } from '@schedule-x/calendar';
-import * as SC from './Calendar.styled';
+
 export function Calendar() {
   const events = useSelector(selectEvents);
   const eventsService = useState(() => createEventsServicePlugin())[0];

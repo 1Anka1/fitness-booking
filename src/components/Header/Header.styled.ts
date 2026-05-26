@@ -1,19 +1,28 @@
 import styled from 'styled-components';
 
-export const Header = styled.header`
-  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  padding: ${(p) => p.theme.space[3]}px;
-`;
+type HeaderProps = {
+  $isOverlay: boolean;
+};
 
-export const WrapperNav = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${(p) => p.theme.space[3]}px;
+export const Header = styled.header<HeaderProps>`
+  position: ${({ $isOverlay }) => ($isOverlay ? 'absolute' : 'relative')};
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  width: 100%;
+  padding: ${({ theme }) => theme.space[4]}px 0;
+
+  color: ${({ $isOverlay, theme }) => ($isOverlay ? theme.colors.white : theme.colors.black)};
+
+  background-color: ${({ $isOverlay, theme }) =>
+    $isOverlay ? theme.colors.black : theme.colors.white};
+
+  border-bottom: 1px solid ${({ $isOverlay, theme }) => ($isOverlay ? 'none' : theme.colors.border)};
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: ${(p) => p.theme.space[3]}px;
+  gap: ${({ theme }) => theme.space[3]}px;
 `;

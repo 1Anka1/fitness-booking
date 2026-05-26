@@ -1,21 +1,19 @@
-import { UserBar } from '../shared/ui/UserBar/UserBar';
 import { Navigation } from '../Navigation/Navigation';
 import { Container } from '../shared/Layout/Layout.styled';
-import { Search } from '../shared/ui/Search/Search';
 import * as SC from './Header.styled';
+import { useLocation } from 'react-router-dom';
+import { useAuthSelector } from '../../hooks/useAuthSelector';
 
 export const Header = () => {
-  return (
-    <SC.Header>
-      <Container>
-        <SC.WrapperNav>
-          <Navigation />
+  const { pathname } = useLocation();
+  const { isLogged } = useAuthSelector();
 
-          <SC.Wrapper>
-            <Search placeholder={'Search trainers, sessions...'} />
-            <UserBar />
-          </SC.Wrapper>
-        </SC.WrapperNav>
+  const isOverlay = pathname === '/' && !isLogged;
+
+  return (
+    <SC.Header $isOverlay={isOverlay}>
+      <Container>
+        <Navigation $isOverlay={isOverlay} />
       </Container>
     </SC.Header>
   );

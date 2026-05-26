@@ -11,16 +11,16 @@ export const SearchForm = styled.form`
 export const SearchInput = styled.input`
   flex-grow: 1;
   padding: 10px 0 10px 41px;
-  border: 1px solid ${(p) => p.theme.colors.borderDark};
-  border-radius: ${(p) => p.theme.radius.round};
-  color: ${(p) => p.theme.colors.textMuted};
+  border: 1px solid ${({ theme }) => theme.colors.borderDark};
+  border-radius: ${({ theme }) => theme.radius.round};
+  color: ${({ theme }) => theme.colors.textMuted};
 `;
 
 export const SearchButton = styled.button`
   display: flex;
   position: absolute;
-  left: ${(p) => p.theme.space[2]}px;
+  left: ${({ theme }) => theme.space[2]}px;
   border: none;
-  background-color: ${(p) => p.theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
 `;

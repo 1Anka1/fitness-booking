@@ -10,7 +10,7 @@ export const AdminLayout = () => {
           <SC.AdminNavList>
             {navigation.map(({ id, title, icon, to }) => (
               <li key={id}>
-                <SC.AdminNavItemLink to={to} end={false}>
+                <SC.AdminNavItemLink to={to} end>
                   {icon} {title}
                 </SC.AdminNavItemLink>
               </li>

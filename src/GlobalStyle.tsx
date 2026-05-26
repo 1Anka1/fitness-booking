@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
   blockquote,
   dl,
   dd {
-    margin: ${(p) => p.theme.space[0]}px;
+    margin: ${({ theme }) => theme.space[0]}px;
   }
 
   a {
@@ -32,8 +32,8 @@ export const GlobalStyle = createGlobalStyle`
   ul,
   li,
   ol {
-    padding: ${(p) => p.theme.space[0]}px;;
-    margin: ${(p) => p.theme.space[0]}px;;
+    padding: ${({ theme }) => theme.space[0]}px;;
+    margin: ${({ theme }) => theme.space[0]}px;;
     list-style: none;
   }
 
@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     display: block;
-    margin: ${(p) => p.theme.space[0]}px;;
-    font: 200 20px/1.5 ${(p) => p.theme.fonts.body};
+    margin: ${({ theme }) => theme.space[0]}px;
+    font: 200 20px/1.5 ${({ theme }) => theme.fonts.body};
   }
 `;
