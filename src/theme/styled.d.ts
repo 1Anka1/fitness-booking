@@ -6,6 +6,7 @@ declare module 'styled-components' {
 
     fonts: {
       body: string;
+      text: string;
     };
 
     fontSizes: {
@@ -53,6 +54,7 @@ declare module 'styled-components' {
     radius: {
       none: string;
       round: string;
+      circle: string;
     };
 
     cubic: {

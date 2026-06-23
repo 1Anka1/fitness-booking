@@ -1,10 +1,11 @@
 import type { DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = Object.freeze({
-  space: [0, 5, 8, 16, 24, 32, 56, 74, 150, 256, 450],
+  space: [0, 5, 8, 16, 24, 32, 56, 74, 150, 256, 450, 550],
 
   fonts: {
     body: 'Inter, serif',
+    text: 'Barlow, sans-serif',
   },
 
   fontSizes: {
@@ -26,7 +27,7 @@ export const theme: DefaultTheme = Object.freeze({
   },
 
   colors: {
-    primary: '#0284C7',
+    primary: '#0a88c9',
     primaryLight: '#F0F9FF',
     background: '#F9FAFB',
     backgroundDark: '#0a76ac',
@@ -54,6 +55,7 @@ export const theme: DefaultTheme = Object.freeze({
   radius: {
     none: '0',
     round: '8px',
+    circle: '999px',
   },
 
   cubic: {

@@ -5,6 +5,7 @@ import { Layout } from './components/shared/Layout/Layout';
 import { AdminLayout } from './components/Admin/AdminLayout/AdminLayout';
 import { PublicRoutes } from './components/AuthRoutes/PublicRoutes';
 import { PrivateRoutes } from './components/AuthRoutes/PrivateRoutes';
+import GymClubPassOptions from './pages/GymClubs/GymClubPassOptions';
 
 const Home = lazy(() => import('./pages/Home/Home'));
 const DashboardTrainer = lazy(() => import('./pages/Trainers'));
@@ -14,7 +15,7 @@ const Trainers = lazy(() => import('./pages/Admin/Trainers/Trainers'));
 const Users = lazy(() => import('./pages/Admin/Users/Users'));
 const Authentication = lazy(() => import('./pages/Authentication'));
 const UserCalendar = lazy(() => import('./pages/UserCalendar'));
-const Passes = lazy(() => import('./pages/Passes/Passes'));
+const GymClubs = lazy(() => import('./pages/GymClubs/GymClubs'));
 
 function App() {
   return (
@@ -22,7 +23,6 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<PublicRoutes redirectTo="/calendar" component={<Home />} />} />
 
-        {/* Private Routes */}
         <Route
           path="calendar"
           element={<PrivateRoutes redirectTo="/" component={<UserCalendar />} />}
@@ -36,11 +36,8 @@ function App() {
           element={<PrivateRoutes redirectTo="/" component={<DashboardTrainer />} />}
         />
 
-        {/* Public Routes */}
-        <Route
-          path="passes"
-          element={<PublicRoutes redirectTo="/passes" component={<Passes />} />}
-        />
+        <Route path="offers/pass/clubs" element={<GymClubs />} />
+        <Route path="offers/pass/clubs/:clubId" element={<GymClubPassOptions />} />
       </Route>
 
       <Route
@@ -57,7 +54,6 @@ function App() {
         }
       />
 
-      {/* ADMIN */}
       <Route path="admin" element={<AdminLayout />}>
         <Route index element={<AdminPanel />} />
         <Route path="users" element={<Users />} />

@@ -15,8 +15,7 @@ export const Header = styled.header<HeaderProps>`
 
   color: ${({ $isOverlay, theme }) => ($isOverlay ? theme.colors.white : theme.colors.black)};
 
-  background-color: ${({ $isOverlay, theme }) =>
-    $isOverlay ? theme.colors.black : theme.colors.white};
+  background-color: transparent;
 
   border-bottom: 1px solid ${({ $isOverlay, theme }) => ($isOverlay ? 'none' : theme.colors.border)};
 `;

@@ -1,11 +1,11 @@
-import { GymPasses } from '../../components/GymPasses/GymPasses';
+import { ClubSelection } from '../../components/GymClubs/ClubSelection/ClubSelection';
 import { Container, Section } from '../../components/shared/Layout/Layout.styled';
 
-export default function Passes() {
+export default function GymClubs() {
   return (
     <Section>
       <Container>
-        <GymPasses />
+        <ClubSelection />
       </Container>
     </Section>
   );

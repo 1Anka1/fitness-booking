@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import homeImage from '../../assets/image/Home.png';
+import homeImage from '../../assets/image/gym.jpg';
 
 export const HomeSection = styled.section`
   position: relative;

@@ -9,7 +9,7 @@ export const AuthNav = () => {
         <FiUser size={20} />
         Profil
       </SC.AuthLinkItems>
-      <SC.AuthLinkItems to="/passes">
+      <SC.AuthLinkItems to="/offers/pass/clubs">
         <RiPassValidLine size={20} />
         Buy a pass
       </SC.AuthLinkItems>

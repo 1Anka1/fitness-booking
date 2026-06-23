@@ -10,6 +10,7 @@ interface User {
   token: string | null;
   isRefreshing: boolean;
   isLogged: boolean;
+  pass: string | null;
 }
 
 const initialState: User = {
@@ -19,6 +20,7 @@ const initialState: User = {
   token: null,
   isRefreshing: false,
   isLogged: false,
+  pass: null,
 };
 
 export const authSlice = createSlice({

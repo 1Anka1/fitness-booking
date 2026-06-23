@@ -9,11 +9,11 @@ export const Container = styled.div`
 
 export const Section = styled.section`
   padding-top: 40px;
+  font-family: ${({ theme }) => theme.fonts.text};
 `;
 
 export const Main = styled.main`
   flex-grow: 1;
-  /* background-color: ${({ theme }) => theme.colors.black}; */
 `;
 
 ///LOGIN PAGE

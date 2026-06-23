@@ -42,6 +42,12 @@ export const GlobalStyle = createGlobalStyle`
     height: auto;
   }
 
+  button{
+    display: block;
+      border: none;
+
+  }
+
   body {
     display: block;
     margin: ${({ theme }) => theme.space[0]}px;
