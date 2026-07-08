@@ -14,7 +14,7 @@ function clearAuthHeader() {
 export const registration = createAsyncThunk('api/auth/register', async (credentials, thunkApi) => {
   try {
     const { data } = await axios.post('api/auth/register', credentials);
-    console.log(data.data);
+    console.log('data.data', data.data);
 
     setAuthHeader(data.data.token);
     return data;

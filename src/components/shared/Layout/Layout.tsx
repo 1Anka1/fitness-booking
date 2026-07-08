@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { Main } from './Layout.styled';
 import { Bounce, ToastContainer } from 'react-toastify';
 import { Loader } from '../ui/Loader/Loader';
+import { Footer } from '../ui/Footer/Footer';
 
 export const Layout = () => {
   return (
@@ -28,7 +29,7 @@ export const Layout = () => {
           <Outlet />
         </Suspense>
       </Main>
-      <footer></footer>
+      <Footer />
     </>
   );
 };

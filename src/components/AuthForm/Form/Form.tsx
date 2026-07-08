@@ -2,19 +2,19 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import type { ModeProps } from '../conf/types/types.ts';
 import { loginSchema, registrationSchema } from '../../../utils/yupBasicSchema/basicSchema.ts';
-import { useForm } from 'react-hook-form';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import type { FormValues } from '../../../utils/yupBasicSchema/types.ts';
 import { login, registration } from '../../../redux/auth/authOperations.ts';
 import * as SC from '../AuthForm.styled.ts';
 import { CiMail } from 'react-icons/ci';
 import ButtonShow from '../../shared/ui/ButtonShow/ButtonShow.tsx';
+import { useChekoutSelector } from '../../../hooks/useChekoutSelector.tsx';
 
 export const Form = ({ mode }: ModeProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-
-  console.log(mode);
+  const { finalPrice, club, pass, allClub, startDate } = useChekoutSelector();
 
   const basicSchema = mode === 'login' ? loginSchema : registrationSchema;
 
@@ -30,16 +30,29 @@ export const Form = ({ mode }: ModeProps) => {
 
   const handelShowPass = () => setShowPassword((p) => !p);
 
-  const onSubmit = ({ email, fullName, password }: FormValues) => {
+  const onSubmit: SubmitHandler<FormValues> = (data, e) => {
+    e?.preventDefault();
+
+    console.log('onSubmit', data);
+
     if (mode === 'login') {
-      dispatch(login({ email, password }));
+      dispatch(login({ email: data.email, password: data.password }));
     }
 
     if (mode === 'registration') {
-      dispatch(registration({ email, fullName, password }));
+      dispatch(
+        registration({
+          email: data.email,
+          fullName: data.fullName,
+          password: data.password,
+          selectedClub: club,
+          selectedPass: pass,
+        }),
+      );
     }
     reset();
   };
+
   return (
     <SC.Form onSubmit={handleSubmit(onSubmit)}>
       {mode === 'registration' && (

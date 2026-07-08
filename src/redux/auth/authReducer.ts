@@ -30,8 +30,15 @@ export const authSlice = createSlice({
   extraReducers: (builder) =>
     builder
       //LOGIN
-      .addCase(login.pending, (state) => state)
-      .addCase(login.rejected, (state) => state)
+      .addCase(login.pending, (state) => {
+        state.isRefreshing = true;
+      })
+
+      .addCase(login.rejected, (state) => {
+        state.isRefreshing = false;
+        state.isLogged = false;
+      })
+
       .addCase(login.fulfilled, (state, { payload }) => {
         state.email = payload.data.email;
         state.token = payload.data.token;
@@ -39,8 +46,13 @@ export const authSlice = createSlice({
         state.isRefreshing = false;
       })
       //REGISTRATION
-      .addCase(registration.pending, (state) => state)
-      .addCase(registration.rejected, (state) => state)
+      .addCase(registration.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(registration.rejected, (state) => {
+        state.isRefreshing = false;
+        state.isLogged = false;
+      })
       .addCase(registration.fulfilled, (state, { payload }) => {
         state.email = payload.data.email;
         state.fullName = payload.data.fullName;

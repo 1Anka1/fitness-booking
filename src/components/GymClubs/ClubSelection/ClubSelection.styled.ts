@@ -5,7 +5,9 @@ export const SectionWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: ${({ theme }) => theme.space[4]}px;
+  min-height: 100svh;
   width: 100%;
+  position: relative;
 `;
 
 export const Title = styled.h2`

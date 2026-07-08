@@ -1,14 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form } from '../../AuthForm/Form/Form';
 import { SocialLogin } from '../../AuthForm/SocialLogin/SocialLogin';
 import * as SC from './PassAuth.styled';
+import { useNavigate } from 'react-router-dom';
+import { useAuthSelector } from '../../../hooks/useAuthSelector';
 
 export const PassAuth = () => {
-  const [mode, setMode] = useState('login');
+  const [mode, setMode] = useState<'login' | 'registration'>('login');
 
-  const handleModeChange = (mode: string) => {
+  const navigate = useNavigate();
+  const { isLogged } = useAuthSelector();
+
+  useEffect(() => {
+    if (isLogged) {
+      navigate('/calendar', { replace: true });
+    }
+  }, [isLogged, navigate]);
+
+  const handleModeChange = (mode: 'login' | 'registration') => {
     setMode(mode);
   };
+
   return (
     <>
       <SC.Tabs>
