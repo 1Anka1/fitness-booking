@@ -1,7 +1,8 @@
 import { FaApple, FaGoogle } from 'react-icons/fa6';
 import * as SC from './SocialLogin.styled';
+import type { ModeProps } from '../conf/types/types';
 
-export const SocialLogin = ({ mode }) => {
+export const SocialLogin = ({ mode }: ModeProps) => {
   return (
     <SC.SocialWrapper>
       <SC.Divider>
@@ -25,7 +26,7 @@ export const SocialLogin = ({ mode }) => {
         {mode === 'login' ? (
           <p>
             Don't have an account?
-            <SC.StyledLink to="/auth/registration"> Sign in</SC.StyledLink>
+            <SC.StyledLink to="/auth/registration"> Register</SC.StyledLink>
           </p>
         ) : (
           <p>

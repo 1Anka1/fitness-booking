@@ -11,7 +11,7 @@ export const ClubSelection = () => {
   const [selectedCity, setSelectedCity] = useState<string | null>(null);
 
   const getClubs = useCallback(() => getAllDataClubs(), []);
-  const { results, isLoading } = useDataAPI(getClubs, 'clubs');
+  const { results, isLoading } = useDataAPI<Club[]>(getClubs, 'clubs', []);
 
   const cities = useMemo(() => {
     return [...new Set(results.map(({ city }) => city))];
@@ -20,7 +20,7 @@ export const ClubSelection = () => {
   const visibleClubs = useMemo(() => {
     if (!selectedCity) return results;
 
-    return results.filter((club: Club) => club.city === selectedCity);
+    return results.filter(({ city }) => city === selectedCity);
   }, [results, selectedCity]);
 
   const handleClubClick = (club: Club) => {

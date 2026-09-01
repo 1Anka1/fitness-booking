@@ -13,7 +13,7 @@ export const PassAuth = () => {
 
   useEffect(() => {
     if (isLogged) {
-      navigate('/calendar', { replace: true });
+      navigate('/profile', { replace: true });
     }
   }, [isLogged, navigate]);
 

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import type { ModeProps } from '../conf/types/types.ts';
 import { loginSchema, registrationSchema } from '../../../utils/yupBasicSchema/basicSchema.ts';
-import { useForm, type SubmitHandler } from 'react-hook-form';
+import { useForm, type Resolver, type SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import type { FormValues } from '../../../utils/yupBasicSchema/types.ts';
 import { login, registration } from '../../../redux/auth/authOperations.ts';
@@ -10,16 +9,24 @@ import * as SC from '../AuthForm.styled.ts';
 import { CiMail } from 'react-icons/ci';
 import ButtonShow from '../../shared/ui/ButtonShow/ButtonShow.tsx';
 import { useChekoutSelector } from '../../../hooks/useChekoutSelector.tsx';
+import { useAuthSelector } from '../../../hooks/useAuthSelector.tsx';
+import { Loader } from '../../shared/ui/Loader/Loader.tsx';
+import { useAppDispatch } from '../../../redux/hooks/hooks.ts';
 
 export const Form = ({ mode }: ModeProps) => {
   const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch();
-  const { finalPrice, club, pass, allClub, startDate } = useChekoutSelector();
+
+  const { isRefreshing } = useAuthSelector();
+  const { finalPrice, club, passType, allClub, startDate } = useChekoutSelector();
+  const { error } = useAuthSelector();
+
+  const dispatch = useAppDispatch();
 
   const basicSchema = mode === 'login' ? loginSchema : registrationSchema;
+  const resolver = yupResolver(basicSchema) as Resolver<FormValues>;
 
   const { register, handleSubmit, formState, reset } = useForm<FormValues>({
-    resolver: yupResolver(basicSchema),
+    resolver,
     mode: 'onChange',
   });
 
@@ -30,31 +37,45 @@ export const Form = ({ mode }: ModeProps) => {
 
   const handelShowPass = () => setShowPassword((p) => !p);
 
-  const onSubmit: SubmitHandler<FormValues> = (data, e) => {
+  const onSubmit: SubmitHandler<FormValues> = async (data, e) => {
     e?.preventDefault();
 
-    console.log('onSubmit', data);
-
-    if (mode === 'login') {
-      dispatch(login({ email: data.email, password: data.password }));
+    try {
+      if (mode === 'login') {
+        await dispatch(
+          login({
+            email: data.email,
+            password: data.password,
+          }),
+        ).unwrap();
+      } else if (mode === 'registration') {
+        await dispatch(
+          registration({
+            email: data.email,
+            fullName: data.fullName ?? '',
+            password: data.password,
+            role: passType?.role ?? 'Client',
+            selectedClub: club ?? null,
+            selectedPass: passType ?? null,
+            includeAllClubs: allClub,
+            passStartDate: startDate ?? null,
+            finalPrice: finalPrice ?? null,
+          }),
+        ).unwrap();
+      }
+      reset();
+    } catch (error) {
+      console.log(error);
     }
-
-    if (mode === 'registration') {
-      dispatch(
-        registration({
-          email: data.email,
-          fullName: data.fullName,
-          password: data.password,
-          selectedClub: club,
-          selectedPass: pass,
-        }),
-      );
-    }
-    reset();
   };
+
+  if (isRefreshing) {
+    return <Loader />;
+  }
 
   return (
     <SC.Form onSubmit={handleSubmit(onSubmit)}>
+      {error && <SC.ServerError>{error}</SC.ServerError>}
       {mode === 'registration' && (
         <SC.Label>
           Full name
@@ -94,7 +115,7 @@ export const Form = ({ mode }: ModeProps) => {
           <SC.Input
             type={showPassword ? 'text' : 'password'}
             placeholder="Password"
-            $error={!!errorPassword}
+            $error={errorPassword}
             {...register('password')}
           />
           <ButtonShow onToggle={handelShowPass} visible={showPassword} />

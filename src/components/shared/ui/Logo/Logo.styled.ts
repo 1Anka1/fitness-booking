@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 type NavProps = {
-  $isOverlay: boolean;
+  $isOverlay?: boolean;
 };
 
 export const NavigationLink = styled(NavLink)<NavProps>`

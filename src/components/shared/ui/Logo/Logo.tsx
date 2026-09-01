@@ -2,10 +2,10 @@ import { FaDumbbell } from 'react-icons/fa6';
 import * as SC from './Logo.styled';
 
 type LogoProps = {
-  $isOverlay: boolean;
+  $isOverlay?: boolean;
 };
 
-export const Logo = ({ $isOverlay }: LogoProps) => {
+export const Logo = ({ $isOverlay = false }: LogoProps) => {
   return (
     <SC.NavigationLink to={'/'} $isOverlay={$isOverlay}>
       <SC.Icon>

@@ -38,8 +38,8 @@ export const navigation = [
   },
   {
     id: 5,
-    title: 'Settings',
-    to: '/admin/settings',
+    title: 'User Profile',
+    to: '/admin/profile',
     icon: <IoIosSettings />,
   },
 ];

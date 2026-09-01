@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import * as SC from './ActionForm.styled';
-import { useDispatch } from 'react-redux';
 
 import { toast } from 'react-toastify';
 import { addEvent } from '../../../../../redux/calendar/calendarSlice';
+import { useAppDispatch } from '../../../../../redux/hooks/hooks';
 
 export const ActionForm = ({ selectedAction, toggleModal }) => {
   const [title, setTitle] = useState('');
@@ -13,7 +13,7 @@ export const ActionForm = ({ selectedAction, toggleModal }) => {
   const [startValue, setStartValue] = useState('');
   const [endValue, setEndValue] = useState('');
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const sendAction = (e) => {
     e.preventDefault();

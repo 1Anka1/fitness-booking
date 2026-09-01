@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState, type MouseEvent } from 'react';
 import { useParams } from 'react-router-dom';
 import * as SC from './PassOptions.styled';
 
@@ -6,30 +6,35 @@ import { getClubById } from '../../../api/userData';
 import { useDataAPI } from '../../../hooks/useDataAPI';
 import { Loader } from '../../shared/ui/Loader/Loader';
 import { buttonPass } from './config/buttonPass';
-import { useDispatch } from 'react-redux';
 import { setSelectedClub } from '../../../redux/checkout/checkoutSlice';
 import { PassesByType } from '../PassesByType/PassesByType';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
+import type { Club } from '../../../utils/types/types';
 
 export default function PassOptions() {
   const [selectedPassType, setSelectedPassType] = useState<string>('Daily');
 
   const { clubId } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const getClub = useCallback(() => getClubById(clubId), [clubId]);
-  const { results, isLoading } = useDataAPI(getClub, 'clubId');
-  const { _id, name, address } = results;
+  const { results: club, isLoading } = useDataAPI<Club | null>(getClub, clubId, null);
 
-  if (isLoading) {
+  useEffect(() => {
+    if (!club) return;
+
+    dispatch(setSelectedClub(club));
+  }, [club, dispatch]);
+
+  const handleNameSelected = (e: MouseEvent<HTMLButtonElement>) => {
+    setSelectedPassType(e.currentTarget.name);
+  };
+
+  if (isLoading || !club) {
     return <Loader />;
   }
 
-  dispatch(setSelectedClub(results));
-
-  const handleNameSelected = (e) => {
-    const type = e.target.name;
-    setSelectedPassType(type);
-  };
+  const { name, address } = club;
 
   return (
     <>

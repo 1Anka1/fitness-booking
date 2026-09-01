@@ -1,18 +1,18 @@
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../redux/hooks/hooks';
 import {
   selectClub,
   selectFinalPrice,
   selectIncludeAllClubs,
   selectPassStartDate,
-  selectSelectedPass,
+  selectPass,
 } from '../redux/selectors';
 
 export const useChekoutSelector = () => {
-  const club = useSelector(selectClub);
-  const finalPrice = useSelector(selectFinalPrice);
-  const pass = useSelector(selectSelectedPass);
-  const allClub = useSelector(selectIncludeAllClubs);
-  const startDate = useSelector(selectPassStartDate);
+  const club = useAppSelector(selectClub);
+  const passType = useAppSelector(selectPass);
+  const allClub = useAppSelector(selectIncludeAllClubs);
+  const startDate = useAppSelector(selectPassStartDate);
+  const finalPrice = useAppSelector(selectFinalPrice);
 
-  return { club, finalPrice, pass, allClub, startDate };
+  return { club, finalPrice, passType, allClub, startDate };
 };

@@ -94,12 +94,12 @@ export const AddonRow = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.s}px;
 `;
 
-export const Toggle = styled.button`
+export const Toggle = styled.button<{ $active: boolean }>`
   position: relative;
   width: 65px;
   height: 35px;
   border: 1px solid
-    ${({ activeAddons, theme }) => (activeAddons ? theme.colors.borderDark : theme.colors.border)};
+    ${({ $active, theme }) => ($active ? theme.colors.borderDark : theme.colors.border)};
   border-radius: ${({ theme }) => theme.radius.circle};
   background-color: ${({ theme }) => theme.colors.white};
   cursor: pointer;

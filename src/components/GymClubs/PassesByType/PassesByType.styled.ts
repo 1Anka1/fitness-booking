@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  margin-bottom: ${({ theme }) => theme.space[5]}px;
+`;
 
 export const InfoWrapper = styled.div`
   display: flex;

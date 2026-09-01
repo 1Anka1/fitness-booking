@@ -45,6 +45,7 @@ export const PassList = ({
                 <span>Access to all clubs</span>
                 <SC.Toggle
                   type="button"
+                  $active={includeAllClubs}
                   aria-pressed={includeAllClubs}
                   onClick={() => onToggle(pass)}
                 />

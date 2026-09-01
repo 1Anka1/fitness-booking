@@ -1,11 +1,11 @@
-import { BookingModal } from '../components/BookingModal/BookingModal';
 import { Container, Section } from '../components/shared/Layout/Layout.styled';
+import { UserProfile } from '../components/UserProfile/UserProfile';
 
-export default function DashboardUser() {
+export default function User() {
   return (
     <Section>
       <Container>
-        <BookingModal />
+        <UserProfile />
       </Container>
     </Section>
   );

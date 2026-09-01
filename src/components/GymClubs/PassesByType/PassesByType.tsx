@@ -1,7 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 
 import * as SC from './PassesByType.styled';
-import { useDispatch } from 'react-redux';
 import { useDataAPI } from '../../../hooks/useDataAPI';
 import { getPass } from '../../../api/userData';
 import type { Pass } from '../../../utils/types/types';
@@ -14,6 +13,7 @@ import { IoCaretForwardOutline } from 'react-icons/io5';
 import { RxDividerVertical } from 'react-icons/rx';
 import { PassList } from '../PassList/PassList';
 import { PassAuth } from '../PassAuth/PassAuth';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
 
 const formatDateForInput = (date: Date) => {
   const year = date.getFullYear();
@@ -30,7 +30,11 @@ const formatDateForDisplay = (value: string) => {
   return date.toLocaleDateString('de-DE');
 };
 
-export const PassesByType = ({ selectedPassType }) => {
+type PassesByTypeProps = {
+  selectedPassType: string;
+};
+
+export const PassesByType = ({ selectedPassType }: PassesByTypeProps) => {
   const today = formatDateForInput(new Date());
 
   const [passWithAllClubsId, setPassWithAllClubsId] = useState<string | null>(null);
@@ -38,10 +42,10 @@ export const PassesByType = ({ selectedPassType }) => {
   const [passStartDate, setLocalPassStartDate] = useState(today);
   const dateInputRef = useRef<HTMLInputElement>(null);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const getPassByType = useCallback(() => getPass(selectedPassType), [selectedPassType]);
-  const { results } = useDataAPI(getPassByType, selectedPassType && 'pass');
+  const { results } = useDataAPI<Pass[]>(getPassByType, selectedPassType, []);
 
   const handleToggle = (pass: Pass) => {
     const includeAllClubs = passWithAllClubsId !== pass._id;
@@ -78,12 +82,12 @@ export const PassesByType = ({ selectedPassType }) => {
   };
 
   const handleOpenDatePicker = () => {
-    const dateInput = dateInputRef.current?.showPicker();
+    const dateInput = dateInputRef.current;
 
     if (!dateInput) return;
 
     dateInput.focus();
-    (dateInput as HTMLInputElement & { showPicker?: () => void }).showPicker?.();
+    dateInput.showPicker?.();
   };
 
   const handleDateChange = (value: string) => {

@@ -6,14 +6,14 @@ export const Tabs = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.backgroundDark};
   margin-bottom: ${({ theme }) => theme.space[4]}px;
 `;
-
-export const TabButton = styled.button`
+export const TabButton = styled.button<{ $active: boolean }>`
   flex: 1;
   border: none;
   background: ${({ $active, theme }) => ($active ? theme.colors.primaryLight : 'transparent')};
   padding: ${({ theme }) => theme.space[3]}px;
   font-size: ${({ theme }) => theme.fontSizes.m}px;
-  font-weight: ${({ $active, theme }) => ($active ? theme.fontWeights.bold : '')};
+  font-weight: ${({ $active, theme }) =>
+    $active ? theme.fontWeights.bold : theme.fontWeights.medium};
   color: ${({ theme }) => theme.colors.textPrimary};
   cursor: pointer;
   position: relative;

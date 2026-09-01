@@ -87,3 +87,10 @@ export const SignInBtn = styled.button`
     color: ${({ theme }) => theme.colors.primary};
   }
 `;
+
+export const ServerError = styled.div`
+  margin: 0 auto;
+  color: ${({ theme }) => theme.colors.statusError};
+  font-weight: ${({ theme }) => theme.fontWeights.lightMedium};
+  font-size: ${({ theme }) => theme.fontSizes.s}px;
+`;
